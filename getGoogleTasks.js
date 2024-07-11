@@ -2,6 +2,8 @@ const { google } = require('googleapis');
 const fs = require('fs');
 require('dotenv').config();
 
+// See https://console.cloud.google.com/apis/credentials?project=personal-356019
+
 // Load environment variables
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
