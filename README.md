@@ -1,4 +1,4 @@
-# google-tasks-automation (Tasks to Markdown)
+# Google Tasks Automation (Tasks to Markdown)
 
 ## Secrets
 
