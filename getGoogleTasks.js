@@ -6,6 +6,8 @@ const path = require('path');
 
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
+// .env file format
+
 // CLIENT_ID=<CLIENT_ID>
 // CLIENT_SECRET=<CLIENT_SECRET>
 // REFRESH_TOKEN=<REFRESH_TOKEN>
@@ -80,7 +82,7 @@ async function listAndDeleteTasks() {
         taskItems.forEach((task, index) => {
             console.log('task', task);
 
-            markdownContent += `- ${task.title}\n`;
+            markdownContent += `- NOW ${task.title}\n`;
         });
 
         // Write to Markdown file
