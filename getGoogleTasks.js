@@ -83,6 +83,25 @@ async function listAndAppendTasks() {
 
         taskItems.forEach((task) => {
             if (!taskExists(existingTasks, task.title)) {
+                console.log('task', task);
+
+                // Task JSON format
+
+                //{
+                //    kind: 'tasks#task',
+                //    id: 'eHU0NkxFWl9EOE5xQkJOaw',
+                //    etag: '"LTE1MDcwMTYzNTU"',
+                //    title: 'My Jiu Jitsu Is Getting Worse!xxx',
+                //    updated: '2024-07-12T09:01:09.000Z',
+                //    selfLink: 'https://www.googleapis.com/tasks/v1/lists/NEp1RGxHd1NLR0VhcTQwWg/tasks/eHU0NkxFWl9EOE5xQkJOaw',
+                //    position: '00000000000000000000',
+                //    status: 'needsAction',
+                //    links: [],
+                //    webViewLink: 'https://tasks.google.com/task/xu46LEZ_D8NqBBNk'
+                //}
+
+                // 'links' always seems to be empty - web links associated with tasks are not readable it seems
+
                 markdownContent += `- NOW ${task.title}\n`; // Prefix "NOW" can be adjusted as needed
             }
         });
@@ -126,7 +145,7 @@ function taskExists(existingTasks, taskTitle) {
     const cleanTaskTitle = taskTitle.trim();
     return existingTasks.some((taskLine) => {
         const cleanLine = taskLine.replace(/^- (NOW|LATER|DONE) /, '').trim();
-        return cleanLine === cleanTaskTitle;
+        return cleanLine.includes(cleanTaskTitle);
     });
 }
 
